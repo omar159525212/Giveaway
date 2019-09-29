@@ -11,12 +11,13 @@ client.on('message',async message => {
      //return message.channel.send(':heavy_multiplication_x:| **هذا الامر معطل حاليا.. ``حاول في وقت لاحق``**');
     if(!message.guild.member(message.author).hasPermission('MANAGE_GUILD')) return message.channel.send(':heavy_multiplication_x:| **يجب أن يكون لديك خاصية التعديل على السيرفر**');
     message.channel.send(`:eight_pointed_black_star:| **من فضلك اكتب اسم الروم**`).then(msgg => {
-      message.channel.awaitMessages(filter, {
+      message.channel.awaitMessages(giveaway
+, {
         max: 1,
         time: 20000,
         errors: ['time']
       }).then(collected => {
-        let room = message.guild.channels.find('name', collected.first(627953026249916435).content);
+        let room = message.guild.channels.find('name', collected.first().content);
         if(!room) return message.channel.send(':heavy_multiplication_x:| **لم اقدر على ايجاد الروم المطلوب**');
         room = collected.first().content;
         collected.first().delete();
