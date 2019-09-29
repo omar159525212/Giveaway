@@ -15,7 +15,7 @@ client.on('message',async message => {
         time: 20000,
         errors: ['time']
       }).then(collected => {
-        let room = message.guild.channels.find('627953026249916435', collected.first().content);
+        let room = message.guild.channels.find('name', collected.first().content);
         if(!room) return message.channel.send(':heavy_multiplication_x:| **لم اقدر على ايجاد الروم المطلوب**');
         room = collected.first().content;
         collected.first().delete();
